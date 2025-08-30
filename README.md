@@ -67,6 +67,97 @@ The field descriptions are as follows:
 - thumbnail_width: The width of the generated video thumbnail image.
 - thumbnail_height: The height of the generated video thumbnail image.
 
+### Custom Start and End Frame Generation
+
+If you want to generate a video by customizing the start and end frames, you can input the image links for the start and end frames:
+
+At this time, the `start_image_url` field can accept the following image as the start frame of the video:
+
+![Start Frame](https://cdn.acedata.cloud/r9vsv9.png)
+
+Next, we need to customize the video generation based on the start and end frames and keywords, specifying the following content:
+
+- action: The action of the video generation task, usually either normal generation `generate` or extended generation `extend`, with the default being `generate`.
+- start_image_url: Specify the start frame of the generated video.
+- end_image_url: Specify the end frame of the generated video.
+- prompt: The keyword content for the generated video.
+
+An example of the input is as follows:
+
+<p><img src="https://cdn.acedata.cloud/zvzydx.png" width="500" class="m-auto"></p>
+
+After filling it out, the generated code is as follows:
+
+<p><img src="https://cdn.acedata.cloud/tx80pu.png" width="500" class="m-auto"></p>
+
+The corresponding code is:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/luma/videos"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "start_image_url": "https://cdn.acedata.cloud/r9vsv9.png",
+    "action": "generate",
+    "prompt": "Astronauts shuttle from space to volcano"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+The result obtained is as follows:
+
+```json
+{
+  "success": true,
+  "task_id": "12a18694-fd4b-47e7-9c50-34f30862cff6",
+  "video_id": "0105c090-03a5-425a-8026-523341cd575b",
+  "prompt": "Astronauts shuttle from space to volcano",
+  "video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4",
+  "video_height": 656,
+  "video_width": 1552,
+  "state": "completed",
+  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.jpg",
+  "thumbnail_width": 1552,
+  "thumbnail_height": 656
+}
+```
+
+The final result is similar to the previous one, with the generated video start frame containing the image we provided. Of course, you can also provide both start and end frame image links to generate the video; you just need to add an end frame image based on the above. The information for the end frame image is as follows:
+
+![End Frame](https://cdn.acedata.cloud/0iad3k.png)
+
+An example of the input is as follows:
+
+<p><img src="https://cdn.acedata.cloud/20igwi.png" width="500" class="m-auto"></p>
+
+Finally, the following result is obtained:
+```json
+{
+  "success": true,
+  "task_id": "d1cb723a-e554-4775-94a4-bb6ae8c7ea67",
+  "video_id": "6bebd0d2-f793-472e-9326-38528a9273bb",
+  "prompt": "Astronauts shuttle from space to volcano",
+  "video_url": "https://platform.cdn.acedata.cloud/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.mp4",
+  "video_height": 656,
+  "video_width": 1552,
+  "state": "completed",
+  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/d1cb723a-e554-4775-94a4-bb6ae8c7ea67.jpg",
+  "thumbnail_width": 1552,
+  "thumbnail_height": 656
+}
+```
+
+The result is similar to the above, and the generated video contains images of both the first and last frames, thus completing the custom first and last frame generation for the video.
+
 
 ## More
 
