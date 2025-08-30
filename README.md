@@ -161,15 +161,15 @@ The result is similar to the above, and the generated video contains images of b
 
 ## More
 
-For more info, please check below APIs and integration documents
+For more info, please check below APIs and integration documents.
 
-| API | Path | Integration Document |
+| API | Path | Integration Guidance |
 | ---- | ---- | ------------ |
 | [Luma Videos Generation API](http://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) | `/luma/videos` | [Luma Videos Generation API Integration Guide](http://platform.acedata.cloud/documents/16bb0108-1f09-45b3-97ac-16a668750a8c) |
 | [Luma Tasks API](http://platform.acedata.cloud/documents/7d32369c-4ead-4364-a4c5-652bc768b3ff) | `/luma/tasks` | [Luma Tasks API Integration Guide](http://platform.acedata.cloud/documents/3e965973-7b28-4844-b404-bd28bfeb5097) |
 
 Base URL: [https://api.acedata.cloud](https://api.acedata.cloud)
 
-## Support 
+## Support
 
 If you meet any issue, check our from [support info](https://platform.acedata.cloud/support).
