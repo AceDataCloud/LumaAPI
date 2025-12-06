@@ -168,6 +168,180 @@ Finally, the result is as follows:
 
 The result is similar to the above text, and the generated video also contains images of the first and last frames, thus completing the custom first and last frame generation for the video.
 
+### Video Extension Functionality
+
+If you want to continue generating the video, you can set the parameter `action` to `extend`, and input the ID or video link of the video you want to continue generating. The video ID and video link can be obtained based on the basic usage, as shown in the image below:
+
+<p><img src="https://cdn.acedata.cloud/fwknj4.png" width="500" class="m-auto"></p>
+
+At this point, you can see that the video ID is:
+
+```
+"video_id": "0105c090-03a5-425a-8026-523341cd575b",
+"video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4"
+```
+
+> Note that the `video_id` and `video_url` here are the ID and link of the generated video. If you do not know how to generate a video, you can refer to the basic usage above to generate a video.
+
+To continue generating the video, you must upload the video link or video ID. Below is a demonstration of using the video ID to extend it. Next, we must fill in the keywords to customize the video generation, which can specify the following content:
+
+- action: The action for extending the video, which should be `extend`.
+- prompt: The keywords for extending the video.
+- video_url: The link to the video that needs to be extended.
+- video_id: The unique ID of the video that needs to be extended.
+- end_image_url: The link to the image for the last frame of the extended video, optional parameter.
+
+The sample input is as follows:
+
+<p><img src="https://cdn.acedata.cloud/vv0rxk.png" width="500" class="m-auto"></p>
+
+After filling it out, the code is automatically generated as follows:
+
+<p><img src="https://cdn.acedata.cloud/woapxi.png" width="500" class="m-auto"></p>
+
+The corresponding Python code:
+
+```python
+import requests
+
+url = "https://api.acedata.cloud/luma/videos"
+
+headers = {
+    "accept": "application/json",
+    "authorization": "Bearer {token}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "action": "extend",
+    "video_id": "0105c090-03a5-425a-8026-523341cd575b",
+    "prompt": "Astronauts shuttle from space to volcano"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+print(response.text)
+```
+
+Clicking run, you can find that you will get a result as follows:
+
+```json
+{
+  "success": true,
+  "task_id": "c6e529d1-a06d-4c12-91b2-c855135131c3",
+  "video_id": "36908c49-c2bb-4a11-bd5a-b8512b004818",
+  "prompt": "Astronauts shuttle from space to volcano",
+  "video_url": "https://platform.cdn.acedata.cloud/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.mp4",
+  "video_height": 656,
+  "video_width": 1552,
+  "state": "completed",
+  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/c6e529d1-a06d-4c12-91b2-c855135131c3.jpg",
+  "thumbnail_width": 1552,
+  "thumbnail_height": 656
+}
+```
+
+It can be seen that this video is an extension based on the video that needs to be extended, and the result content is consistent with the above text, thus achieving the function of continuing the song generation.
+
+Of course, we can also specify the video link to perform the extension generation by filling in the following information:
+
+<p><img src="https://cdn.acedata.cloud/0cv0hg.png" width="500" class="m-auto"></p>
+
+After running, the following result is obtained:
+
+```json
+{
+  "success": true,
+  "task_id": "1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca",
+  "video_id": "f0187dc2-339f-4a08-a435-c3a3341f620a",
+  "prompt": "Astronauts shuttle from space to volcano",
+  "video_url": "https://platform.cdn.acedata.cloud/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.mp4",
+  "video_height": 656,
+  "video_width": 1552,
+  "state": "completed",
+  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/1dcb5902-a7be-4b77-ba5d-dd8ec82b26ca.jpg",
+  "thumbnail_width": 1552,
+  "thumbnail_height": 656
+}
+```
+
+According to the result, it can be seen that the video extension function can also be achieved based on the video link.
+
+Finally, we can also specify an image for the last frame in the extended video. Below is the information for the last frame image:
+
+![Last Frame](https://cdn.acedata.cloud/0iad3k.png)
+
+Next, we will add the last frame image information based on the above, as shown below:
+
+<p><img src="https://cdn.acedata.cloud/9p1vrj.png" width="500" class="m-auto"></p>
+
+After clicking run, the following information is obtained:
+
+```json
+{
+  "success": true,
+  "task_id": "b816b2b4-c345-4673-9e19-83e91f91b643",
+  "video_id": "c5400053-63e6-4206-8082-31cf9dd1e7ed",
+  "prompt": "Astronauts shuttle from space to volcano",
+  "video_url": "https://platform.cdn.acedata.cloud/luma/b816b2b4-c345-4673-9e19-83e91f91b643.mp4",
+  "video_height": 656,
+  "video_width": 1552,
+  "state": "completed",
+  "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/b816b2b4-c345-4673-9e19-83e91f91b643.jpg",
+  "thumbnail_width": 1552,
+  "thumbnail_height": 656
+}
+```
+
+It can be seen that, based on the extended video above, we can also specify the last frame image for the extension.
+
+### Asynchronous Callback
+
+Since the time for Luma to generate videos is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
+The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client makes the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the generated music result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
+
+Next, let's understand how to operate specifically through an example.
+
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we will use a public Webhook sample site https://webhook.site/, where you can obtain a Webhook URL as shown in the image:
+
+<p><img src="https://cdn.acedata.cloud/q78okf.png" width="500" class="m-auto"></p>
+
+Copy this URL, and it can be used as a Webhook. The sample here is https://webhook.site/0c87ca0e-cd74-4577-8d68-f2b80fbf8a13.
+
+Next, we can set the `callback_url` field to the above Webhook URL and fill in the `prompt`, as shown in the image:
+
+<p><img src="https://cdn.acedata.cloud/n2fjvi.png" width="500" class="m-auto"></p>
+
+Clicking run, we can find that a result is immediately obtained, as follows:
+
+```json
+{
+  "task_id": "732f8282-7cf8-401c-95f2-42c33aa079a6"
+}
+```
+
+After a moment, we can observe the generated song result at https://webhook.site/0c87ca0e-cd74-4577-8d68-f2b80fbf8a13, as shown in the image:
+
+![](https://cdn.acedata.cloud/1hwm5m.png)
+
+The content is as follows:
+
+```json
+{
+    "success": true,
+    "task_id": "732f8282-7cf8-401c-95f2-42c33aa079a6",
+    "video_id": "4d8013c3-5de0-41aa-966e-0b1a51d1c633",
+    "prompt": "Astronauts shuttle from space to volcano",
+    "video_url": "https://platform.cdn.acedata.cloud/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.mp4",
+    "video_height": 752,
+    "video_width": 1360,
+    "state": "completed",
+    "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.jpg",
+    "thumbnail_width": 1360,
+    "thumbnail_height": 752
+}
+```
+
+It can be seen that the result contains a `task_id` field, and the other fields are similar to those mentioned above, allowing the task to be associated through this field.
 
 ## More
 
