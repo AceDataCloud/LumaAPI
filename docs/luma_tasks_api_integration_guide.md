@@ -16,7 +16,7 @@ Finally, go to the Tasks API page [Luma Tasks API](https://platform.acedata.clou
 
 If you have not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-There is a free quota available for first-time applicants, allowing you to use this API for free.
+There will be a free quota offered for the first application, allowing you to use this API for free.
 
 ## Request Example
 
@@ -122,7 +122,7 @@ Upon successful request, the API will return the detailed information of the vid
 }
 ```
 
-The returned result contains multiple fields, with the request field being the request body when the task was initiated, while the response field is the response body returned after the task is completed, consistent with the requests and responses of the Luma Videos Generation API. The field descriptions are as follows.
+The returned result contains multiple fields, with the request field being the request body when the task was initiated, while the response field is the response body returned after the task is completed, consistent with the requests and returns of the Luma Videos Generation API. The field descriptions are as follows.
 
 - `id`: The ID of the video task generated, used to uniquely identify this video generation task.
 - `video_id`: The unique identifier of the video in the queried video task, which needs to be passed when performing extension operations on the video next time.
@@ -131,7 +131,7 @@ The returned result contains multiple fields, with the request field being the r
 
 ## Batch Query Operation
 
-This is for querying the details of multiple task IDs, and unlike the above, the action needs to be selected as retrieve_batch.
+This is for querying the details of video tasks for multiple task IDs. Unlike the above, the action needs to be selected as retrieve_batch.
 
 **Request Body** includes:
 
@@ -152,7 +152,7 @@ Some code examples are as follows:
 
 ### Response Example
 
-Upon successful request, the API will return the specific details of all batch video tasks this time. For example:
+Upon successful request, the API will return the specific details of all batch video tasks. For example:
 ```json
 {
   "items": [
@@ -217,9 +217,9 @@ Upon successful request, the API will return the specific details of all batch v
 }
 ```
 
-Return results contain multiple fields, among which items include specific details of batch video tasks, and each video task's specific information is the same as the fields mentioned above.
+The return result contains multiple fields, among which `items` includes the specific details of batch video tasks, and the specific information of each video task is the same as the fields in the previous single task query result.
 
-- `items`, all specific details of batch video tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
+- `items`, all specific detail information of batch video tasks. It is an array, and each element of the array has the same format as the previous single task return result.
 - `count`, the number of video tasks in this batch query.
 
 #### CURL
@@ -282,4 +282,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the Luma Tasks API to query all specific details of single or batch video tasks. We hope this document can help you better integrate and use this API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the Luma Tasks API to query the specific detail information of single or batch video tasks. We hope this document can help you better integrate and use this API. If you have any questions, please feel free to contact our technical support team.
