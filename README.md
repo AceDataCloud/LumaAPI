@@ -7,7 +7,7 @@ API home page: [Ace Data Cloud - Luma Video Generation](https://platform.acedata
 ## Get Started
 
 
-With the widespread application of AI, various AI programs have gradually become popular. AI has gradually penetrated all aspects of people's work and life. The industries involved in AI are also increasing, from the initial writing, to medical education, and now to video.
+With the widespread application of AI, various AI programs have gradually become popular. AI has increasingly penetrated all aspects of people's work and life. The industries involved in AI are also growing, from the initial writing, to medical education, and now to video.
 
 Luma is a professional high-quality video generation platform where users only need to upload materials to automatically generate high-quality videos based on different styles and effects. This AI video generator is developed by team members from well-known technology companies, aiming to allow everyone to easily create outstanding videos without complex editing tools.
 
@@ -61,7 +61,7 @@ You can click the "Try" button to directly test the API. After waiting for 1-2 m
 }
 ```
 
-At this point, we have obtained the relevant information about the video, including video ID, video link, video cover, and other content.
+At this point, we can see the relevant information of the video, including video ID, video link, video cover, and other content.
 
 Field descriptions are as follows:
 
@@ -92,7 +92,7 @@ Next, we need to customize the video generation based on the start and end frame
 - end_image_url: Specifies the end frame of the generated video.
 - prompt: The keyword content for generating the video.
 
-An example of the input is as follows:
+An example of the filled form is as follows:
 
 <p><img src="https://cdn.acedata.cloud/zvzydx.png" width="500" class="m-auto"></p>
 
@@ -145,7 +145,7 @@ The final result is similar to the previous one, with the generated video start 
 
 ![End Frame](https://cdn.acedata.cloud/0iad3k.png)
 
-An example of the input is as follows:
+An example of the filled form is as follows:
 
 <p><img src="https://cdn.acedata.cloud/20igwi.png" width="500" class="m-auto"></p>
 
@@ -166,7 +166,7 @@ Finally, the result is as follows:
 }
 ```
 
-The result is similar to the above text, and the generated video also contains images of the first and last frames, thus completing the custom first and last frame generation for the video.
+The result is similar to the above, and the generated video contains images of both the first and last frames, thus completing the custom first and last frame generation for the video.
 
 ### Video Extension Functionality
 
@@ -181,7 +181,7 @@ At this point, you can see that the video ID is:
 "video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4"
 ```
 
-> Note that the `video_id` and `video_url` here are the ID and link of the generated video. If you do not know how to generate a video, you can refer to the basic usage above to generate a video.
+> Note that the `video_id` and `video_url` in this video are the ID and link of the generated video. If you do not know how to generate a video, you can refer to the basic usage above to generate a video.
 
 To continue generating the video, you must upload the video link or video ID. Below is a demonstration of using the video ID to extend it. Next, we must fill in the keywords to customize the video generation, which can specify the following content:
 
@@ -240,13 +240,13 @@ Clicking run, you can find that you will get a result as follows:
 }
 ```
 
-It can be seen that this video is an extension based on the video that needs to be extended, and the result content is consistent with the above text, thus achieving the function of continuing the song generation.
+It can be seen that this video is an extension based on the video that needs to be extended, and the result content is consistent with the above, thus achieving the function of continuing song generation.
 
 Of course, we can also specify the video link to perform the extension generation by filling in the following information:
 
 <p><img src="https://cdn.acedata.cloud/0cv0hg.png" width="500" class="m-auto"></p>
 
-After running, the following result is obtained:
+After running, the result obtained is as follows:
 
 ```json
 {
@@ -292,7 +292,7 @@ After clicking run, the following information is obtained:
 }
 ```
 
-It can be seen that, based on the extended video above, we can also specify the last frame image for the extension.
+It can be seen that, based on the extended video above, a last frame image can also be specified for the extension.
 
 ### Asynchronous Callback
 
@@ -301,7 +301,7 @@ The overall process is: when the client initiates a request, an additional `call
 
 Next, let's understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we will use a public Webhook sample site https://webhook.site/, where you can obtain a Webhook URL as shown in the image:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/, where you can obtain a Webhook URL as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/q78okf.png" width="500" class="m-auto"></p>
 
