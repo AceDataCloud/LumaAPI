@@ -7,7 +7,7 @@ API home page: [Ace Data Cloud - Luma Video Generation](https://platform.acedata
 ## Get Started
 
 
-With the widespread application of AI, various AI programs have gradually become popular. AI has increasingly penetrated all aspects of people's work and life. The industries involved in AI are also growing, from the initial writing, to medical education, and now to video.
+With the widespread application of AI, various AI programs have gradually become popular. AI has gradually penetrated all aspects of people's work and life. The industries involved in AI are also increasing, from the initial writing, to medical education, and now to video.
 
 Luma is a professional high-quality video generation platform where users only need to upload materials to automatically generate high-quality videos based on different styles and effects. This AI video generator is developed by team members from well-known technology companies, aiming to allow everyone to easily create outstanding videos without complex editing tools.
 
@@ -15,11 +15,11 @@ However, Luma does not officially provide an API. AceDataCloud offers a set of L
 
 ### Application and Usage
 
-To use the Luma Videos API, you can first visit the [Luma Videos Generation API](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) page and click the "Acquire" button to obtain the credentials needed for the request:
+To use the Luma Videos API, you can first go to the [Luma Videos Generation API](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) page and click the "Acquire" button to obtain the credentials needed for the request:
 
 ![](https://cdn.acedata.cloud/nyq0xz.png)
 
-If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
+If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will automatically return to the current page.
 
 Upon the first application, there will be a free quota provided, allowing you to use the API for free.
 
@@ -61,7 +61,7 @@ You can click the "Try" button to directly test the API. After waiting for 1-2 m
 }
 ```
 
-At this point, we can see the relevant information of the video, including video ID, video link, video cover, and other content.
+At this point, we have obtained the relevant information about the video, including video ID, video link, video thumbnail, and other content.
 
 Field descriptions are as follows:
 
@@ -70,18 +70,18 @@ Field descriptions are as follows:
 - video_id: The unique ID of the video generated from this task.
 - prompt: The keywords for this video generation task.
 - video_url: The result video link of this video generation task.
-- video_height: The height of the generated video cover image.
-- video_width: The width of the generated video cover image.
+- video_height: The height of the generated video thumbnail image.
+- video_width: The width of the generated video thumbnail image.
 - state: The status of this video generation task; if the task is completed, it is `completed`.
-- thumbnail_url: The link to the generated video cover image.
-- thumbnail_width: The width of the generated video cover image.
-- thumbnail_height: The height of the generated video cover image.
+- thumbnail_url: The link to the generated video thumbnail image.
+- thumbnail_width: The width of the generated video thumbnail image.
+- thumbnail_height: The height of the generated video thumbnail image.
 
 ### Custom Start and End Frame Generation
 
 If you want to generate a video by customizing the start and end frames, you can input the image links for the start and end frames:
 
-At this point, the `start_image_url` field can accept the following image as the start frame of the video:
+At this point, the video start frame `start_image_url` field can accept the following image as the start frame of the video:
 
 ![Start Frame](https://cdn.acedata.cloud/r9vsv9.png)
 
@@ -92,7 +92,7 @@ Next, we need to customize the video generation based on the start and end frame
 - end_image_url: Specifies the end frame of the generated video.
 - prompt: The keyword content for generating the video.
 
-An example of the filled form is as follows:
+An example of the input is as follows:
 
 <p><img src="https://cdn.acedata.cloud/zvzydx.png" width="500" class="m-auto"></p>
 
@@ -145,7 +145,7 @@ The final result is similar to the previous one, with the generated video start 
 
 ![End Frame](https://cdn.acedata.cloud/0iad3k.png)
 
-An example of the filled form is as follows:
+An example of the input is as follows:
 
 <p><img src="https://cdn.acedata.cloud/20igwi.png" width="500" class="m-auto"></p>
 
@@ -166,7 +166,7 @@ Finally, the result is as follows:
 }
 ```
 
-The result is similar to the above, and the generated video contains images of both the first and last frames, thus completing the custom first and last frame generation for the video.
+The result is similar to the above text, and the generated video also contains images of the first and last frames, thus completing the custom first and last frame generation for the video.
 
 ### Video Extension Functionality
 
@@ -181,15 +181,15 @@ At this point, you can see that the video ID is:
 "video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4"
 ```
 
-> Note that the `video_id` and `video_url` in this video are the ID and link of the generated video. If you do not know how to generate a video, you can refer to the basic usage above to generate a video.
+> Note that the `video_id` and `video_url` here are the ID and link of the generated video. If you do not know how to generate a video, you can refer to the basic usage above to generate a video.
 
-To continue generating the video, you must upload the video link or video ID. Below is a demonstration of using the video ID to extend it. Next, we must fill in the keywords to customize the video generation, which can specify the following content:
+To continue generating the video, you must upload the video link or the video ID. Below is a demonstration of using the video ID to extend it. Next, we must fill in the keywords to customize the video generation, which can specify the following content:
 
 - action: The action for extending the video, which should be `extend`.
 - prompt: The keywords for extending the video.
-- video_url: The link to the video that needs to be extended.
-- video_id: The unique ID of the video that needs to be extended.
-- end_image_url: The link to the image for the last frame of the extended video, optional parameter.
+- video_url: The link of the video to be extended.
+- video_id: The unique ID of the video to be extended.
+- end_image_url: The link of the image for the last frame of the extended video, optional parameter.
 
 The sample input is as follows:
 
@@ -240,9 +240,9 @@ Clicking run, you can find that you will get a result as follows:
 }
 ```
 
-It can be seen that this video is an extension based on the video that needs to be extended, and the result content is consistent with the above, thus achieving the function of continuing song generation.
+It can be seen that this video is an extension based on the video that needs to be extended, and the result content is consistent with the above text, thus achieving the function of continuing the song generation.
 
-Of course, we can also specify the video link to perform the extension generation by filling in the following information:
+Of course, we can also specify the video link to extend the generation by filling in the following information:
 
 <p><img src="https://cdn.acedata.cloud/0cv0hg.png" width="500" class="m-auto"></p>
 
@@ -292,16 +292,16 @@ After clicking run, the following information is obtained:
 }
 ```
 
-It can be seen that, based on the extended video above, a last frame image can also be specified for the extension.
+It can be seen that, based on the extended video above, a last frame image can also be specified for extension.
 
 ### Asynchronous Callback
 
 Since the time for Luma to generate videos is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
-The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client makes the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the generated music result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
+The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client makes the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the generated music result will be sent to the client's specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
 
 Next, let's understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/, where you can obtain a Webhook URL as shown in the image:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/, and opening this site will provide a Webhook URL, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/q78okf.png" width="500" class="m-auto"></p>
 
@@ -341,7 +341,7 @@ The content is as follows:
 }
 ```
 
-It can be seen that the result contains a `task_id` field, and the other fields are similar to those mentioned above, allowing the task to be associated through this field.
+It can be seen that the result contains a `task_id` field, and the other fields are similar to those mentioned above, allowing task association through this field.
 
 ## More
 
