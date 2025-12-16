@@ -14,9 +14,9 @@ Finally, go to the Tasks API page [Luma Tasks API](https://platform.acedata.clou
 
 ![Application Page](https://cdn.acedata.cloud/rci31i.png)
 
-If you are not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
+If you have not logged in or registered, you will be automatically redirected to the [login page](https://platform.acedata.cloud) inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-There is a free quota available for first-time applicants, allowing you to use this API for free.
+There will be a free quota offered for the first application, allowing you to use this API for free.
 
 ## Request Example
 
@@ -32,7 +32,7 @@ We will take one task ID returned by the Luma Videos Generation API service as a
 
 **Request Headers** include:
 
-- `accept`: Specifies that the response result should be in JSON format, set to `application/json`.
+- `accept`: Specifies that the response result should be in JSON format, filled in as `application/json`.
 - `authorization`: The key to call the API, which can be selected directly after application.
 
 **Request Body** includes:
@@ -122,20 +122,20 @@ Upon successful request, the API will return the detailed information of the vid
 }
 ```
 
-The returned result contains multiple fields, with the request field being the request body when the task was initiated, and the response field being the response body returned after the task is completed, consistent with the request and return of the Luma Videos Generation API. The field descriptions are as follows.
+The returned result contains multiple fields, with the request field being the request body when the task was initiated, while the response field is the response body returned after the task is completed, consistent with the requests and responses of the Luma Videos Generation API. The field descriptions are as follows.
 
 - `id`: The ID of the video task generated, used to uniquely identify this video generation task.
-- `video_id`: The unique identifier of the video in this queried video task, which needs to be passed as a parameter for future video extension operations.
-- `request`: The request information in the queried video task.
-- `response`: The return information in the queried video task.
+- `video_id`: The unique identifier of the video in the queried video task, which needs to be passed when performing extension operations on the video next time.
+- `request`: The request information in the video task.
+- `response`: The return information in the video task.
 
 ## Batch Query Operation
 
-This is for querying the details of multiple task IDs, and unlike the above, the action needs to be selected as retrieve_batch.
+This is for querying the details of video tasks for multiple task IDs. Unlike the above, the action needs to be selected as retrieve_batch.
 
 **Request Body** includes:
 
-- `ids`: An array of uploaded task IDs.
+- `ids`: The array of uploaded task IDs.
 - `action`: The operation method for the task.
 
 Set as shown in the image below:
