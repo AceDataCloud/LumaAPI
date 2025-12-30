@@ -65,11 +65,11 @@ At this point, we have obtained the relevant information about the video, includ
 
 Field descriptions are as follows:
 
-- success: Indicates whether the generation was successful; if successful, it is `true`, otherwise it is `false`.
+- success: Whether the generation was successful; if successful, it is `true`, otherwise it is `false`.
 - task_id: The unique ID of this video generation task.
 - video_id: The unique ID of the video generated from this task.
 - prompt: The keywords for this video generation task.
-- video_url: The link to the resulting video from this task.
+- video_url: The result video link of this video generation task.
 - video_height: The height of the generated video thumbnail image.
 - video_width: The width of the generated video thumbnail image.
 - state: The status of this video generation task; if the task is completed, it is `completed`.
@@ -81,13 +81,13 @@ Field descriptions are as follows:
 
 If you want to generate a video by customizing the start and end frames, you can input the image links for the start and end frames:
 
-At this point, the `start_image_url` field can accept the following image as the start frame of the video:
+At this point, the video start frame `start_image_url` field can accept the following image as the start frame of the video:
 
 ![Start Frame](https://cdn.acedata.cloud/r9vsv9.png)
 
 Next, we need to customize the video generation based on the start and end frames and keywords, specifying the following content:
 
-- action: The action of the video generation task, usually either normal generation `generate` or extended generation `extend`, default is `generate`.
+- action: The action of the video generation task, usually normal generation `generate` and extended generation `extend`, default is `generate`.
 - start_image_url: Specifies the start frame of the generated video.
 - end_image_url: Specifies the end frame of the generated video.
 - prompt: The keyword content for generating the video.
@@ -191,7 +191,7 @@ To continue generating the video, you must upload the video link or video ID. Be
 - video_id: The unique ID of the video to be extended.
 - end_image_url: The link of the image for the last frame of the extended video, optional parameter.
 
-An example of the filled form is as follows:
+The sample input is as follows:
 
 <p><img src="https://cdn.acedata.cloud/vv0rxk.png" width="500" class="m-auto"></p>
 
@@ -242,7 +242,7 @@ Clicking run, you can find that you will get a result as follows:
 
 It can be seen that this video is an extension based on the video that needs to be extended, and the result content is consistent with the above text, thus achieving the function of continuing the song generation.
 
-Of course, we can also specify the video link to extend the generation by filling in the following information:
+Of course, we can also specify the video link to perform the extension generation by filling in the following information:
 
 <p><img src="https://cdn.acedata.cloud/0cv0hg.png" width="500" class="m-auto"></p>
 
@@ -292,12 +292,12 @@ After clicking run, the following information is obtained:
 }
 ```
 
-It can be seen that, based on the extended video above, a last frame image can also be specified for extension.
+It can be seen that, based on the extended video above, a last frame image can also be specified for the extension.
 
 ### Asynchronous Callback
 
 Since the time for Luma to generate videos is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
-The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client makes the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the generated music result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
+The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the generated music result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
 
 Next, let's understand how to operate specifically through an example.
 
