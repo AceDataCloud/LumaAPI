@@ -12,7 +12,7 @@ To use the Luma Videos API, you can first visit the [Luma Videos Generation API]
 
 ![](https://cdn.acedata.cloud/nyq0xz.png)
 
-If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will automatically return to the current page.
+If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
 Upon the first application, there will be a free quota provided, allowing you to use the API for free.
 
@@ -62,7 +62,7 @@ Field descriptions are as follows:
 - task_id: The unique ID of this video generation task.
 - video_id: The unique ID of the video generated from this task.
 - prompt: The keywords for this video generation task.
-- video_url: The result video link of this video generation task.
+- video_url: The link to the resulting video from this task.
 - video_height: The height of the generated video thumbnail image.
 - video_width: The width of the generated video thumbnail image.
 - state: The status of this video generation task; if the task is completed, it is `completed`.
@@ -74,13 +74,13 @@ Field descriptions are as follows:
 
 If you want to generate a video by customizing the start and end frames, you can input the image links for the start and end frames:
 
-At this point, the video start frame `start_image_url` field can accept the following image as the start frame of the video:
+At this point, the `start_image_url` field can accept the following image as the start frame of the video:
 
 ![Start Frame](https://cdn.acedata.cloud/r9vsv9.png)
 
 Next, we need to customize the video generation based on the start and end frames and keywords, specifying the following content:
 
-- action: The action of the video generation task, usually normal generation `generate` and extended generation `extend`, default is `generate`.
+- action: The action of the video generation task, usually either normal generation `generate` or extended generation `extend`, default is `generate`.
 - start_image_url: Specifies the start frame of the generated video.
 - end_image_url: Specifies the end frame of the generated video.
 - prompt: The keyword content for generating the video.
@@ -174,7 +174,7 @@ At this point, you can see that the video ID is:
 "video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4"
 ```
 
-> Note that the `video_id` and `video_url` here are the ID and link of the generated video. If you do not know how to generate a video, you can refer to the basic usage above to generate a video.
+> Note that the `video_id` and `video_url` here are the ID and link of the generated video. If you do not know how to generate a video, you can refer to the basic usage mentioned above.
 
 To continue generating the video, you must upload the video link or video ID. Below is a demonstration of using the video ID to extend it. Next, we must fill in the keywords to customize the video generation, which can specify the following content:
 
@@ -294,7 +294,7 @@ The overall process is: when the client initiates a request, an additional `call
 
 Next, let's understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/, and opening this site will provide a Webhook URL, as shown in the image:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we will use a public Webhook sample site https://webhook.site/, where you can obtain a Webhook URL as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/q78okf.png" width="500" class="m-auto"></p>
 
