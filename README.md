@@ -21,7 +21,7 @@ To use the Luma Videos API, you can first visit the [Luma Videos Generation API]
 
 If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-There will be a free quota granted upon the first application, allowing you to use the API for free.
+Upon the first application, there will be a free quota provided, allowing you to use the API for free.
 
 ### Basic Usage
 
@@ -61,21 +61,21 @@ You can click the "Try" button to directly test the API. After waiting for 1-2 m
 }
 ```
 
-At this point, we can see the relevant information of the video, including video ID, video link, video cover, and other content.
+At this point, we can see the relevant information about the video, including video ID, video link, video thumbnail, and other content.
 
 Field descriptions are as follows:
 
-- success: Indicates whether the generation was successful; if successful, it is `true`, otherwise it is `false`.
-- task_id: The unique ID of the video generation task.
+- success: Whether the generation was successful; if successful, it is `true`, otherwise it is `false`.
+- task_id: The unique ID of this video generation task.
 - video_id: The unique ID of the video generated from this task.
-- prompt: The keywords for the video generation task.
+- prompt: The keywords for this video generation task.
 - video_url: The link to the resulting video from this task.
-- video_height: The height of the generated video cover image.
-- video_width: The width of the generated video cover image.
-- state: The status of the video generation task; if the task is completed, it is `completed`.
-- thumbnail_url: The link to the generated video cover image.
-- thumbnail_width: The width of the generated video cover image.
-- thumbnail_height: The height of the generated video cover image.
+- video_height: The height of the generated video thumbnail image.
+- video_width: The width of the generated video thumbnail image.
+- state: The status of this video generation task; if the task is completed, it is `completed`.
+- thumbnail_url: The link to the generated video thumbnail image.
+- thumbnail_width: The width of the generated video thumbnail image.
+- thumbnail_height: The height of the generated video thumbnail image.
 
 ### Custom Start and End Frame Generation
 
@@ -166,11 +166,11 @@ Finally, the result is as follows:
 }
 ```
 
-The result is similar to the above, and the generated video contains images of both the first and last frames, thus completing the custom first and last frame generation for the video.
+The result is similar to the above text, and the generated video contains images of both the first and last frames, thus completing the custom first and last frame generation for the video.
 
 ### Video Extension Functionality
 
-If you want to continue generating the video, you can set the parameter `action` to `extend`, and input the ID or video link of the video you want to continue generating. The video ID and video link can be obtained based on the basic usage, as shown in the image below:
+If you want to continue generating the video, you can set the parameter `action` to `extend`, and input the ID or video link of the video you want to continue generating. The video ID and video link can be obtained based on the basic usage as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/fwknj4.png" width="500" class="m-auto"></p>
 
@@ -183,7 +183,7 @@ At this point, you can see that the video ID is:
 
 > Note that the `video_id` and `video_url` here are the ID and link of the generated video. If you do not know how to generate a video, you can refer to the basic usage above to generate a video.
 
-To continue generating the video, you must upload the video link or video ID. Below is a demonstration of using the video ID to extend it. Next, we must fill in the keywords to customize the video generation, which can specify the following content:
+To continue generating the video, you must upload the video link or video ID. Below demonstrates using the video ID to extend, and next, we must fill in the keywords to customize the video generation, specifying the following content:
 
 - action: The action for extending the video, which should be `extend`.
 - prompt: The keywords for extending the video.
@@ -191,7 +191,7 @@ To continue generating the video, you must upload the video link or video ID. Be
 - video_id: The unique ID of the video to be extended.
 - end_image_url: The link of the image for the last frame of the extended video, optional parameter.
 
-The sample input is as follows:
+An example of the filled form is as follows:
 
 <p><img src="https://cdn.acedata.cloud/vv0rxk.png" width="500" class="m-auto"></p>
 
@@ -222,7 +222,7 @@ response = requests.post(url, json=payload, headers=headers)
 print(response.text)
 ```
 
-Clicking run, you can find that a result is obtained, as follows:
+Clicking run, you can find that a result is obtained as follows:
 
 ```json
 {
@@ -240,7 +240,7 @@ Clicking run, you can find that a result is obtained, as follows:
 }
 ```
 
-It can be seen that this video is an extension based on the video that needs to be extended, and the result content is consistent with the above, thus achieving the function of continuing the song generation.
+It can be seen that this video is an extension based on the video that needs to be extended, and the result content is consistent with the above text, thus achieving the function of continuing song generation.
 
 Of course, we can also specify the video link to extend the generation by filling in the following information:
 
@@ -264,9 +264,9 @@ After running, the following result is obtained:
 }
 ```
 
-According to the result, it can be seen that the video extension function can also be achieved based on the video link.
+From the result, it can be seen that the video extension function can also be achieved based on the video link.
 
-Finally, we can also specify an image for the last frame in the extended video. Below is the information for the last frame image:
+Finally, we can also specify an image for the last frame in the extended video for extension. Below is the information for the last frame image:
 
 ![Last Frame](https://cdn.acedata.cloud/0iad3k.png)
 
@@ -292,7 +292,7 @@ After clicking run, the following information is obtained:
 }
 ```
 
-It can be seen that, based on the extended video above, a last frame image can also be specified for the extension.
+It can be seen that, based on the extended video above, a last frame image can also be specified for extension.
 
 ### Asynchronous Callback
 
@@ -301,7 +301,7 @@ The overall process is: when the client initiates a request, an additional `call
 
 Next, let's understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we will use a public Webhook sample site https://webhook.site/, where you can obtain a Webhook URL as shown in the image:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we will use a public Webhook sample site https://webhook.site/, where you can obtain a Webhook URL, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/q78okf.png" width="500" class="m-auto"></p>
 
