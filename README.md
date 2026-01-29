@@ -19,7 +19,7 @@ To use the Luma Videos API, you can first visit the [Luma Videos Generation API]
 
 ![](https://cdn.acedata.cloud/nyq0xz.png)
 
-If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
+If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will automatically return to the current page.
 
 Upon the first application, there will be a free quota provided, allowing you to use the API for free.
 
@@ -61,7 +61,7 @@ You can click the "Try" button to directly test the API. After waiting for 1-2 m
 }
 ```
 
-At this point, we can see the relevant information about the video, including video ID, video link, video thumbnail, and other content.
+At this point, we have obtained the relevant information about the video, including video ID, video link, video cover, and other content.
 
 Field descriptions are as follows:
 
@@ -70,12 +70,12 @@ Field descriptions are as follows:
 - video_id: The unique ID of the video generated from this task.
 - prompt: The keywords for this video generation task.
 - video_url: The link to the resulting video from this task.
-- video_height: The height of the generated video thumbnail image.
-- video_width: The width of the generated video thumbnail image.
+- video_height: The height of the generated video cover image.
+- video_width: The width of the generated video cover image.
 - state: The status of this video generation task; if the task is completed, it is `completed`.
-- thumbnail_url: The link to the generated video thumbnail image.
-- thumbnail_width: The width of the generated video thumbnail image.
-- thumbnail_height: The height of the generated video thumbnail image.
+- thumbnail_url: The link to the generated video cover image.
+- thumbnail_width: The width of the generated video cover image.
+- thumbnail_height: The height of the generated video cover image.
 
 ### Custom Start and End Frame Generation
 
@@ -170,7 +170,7 @@ The result is similar to the above text, and the generated video contains images
 
 ### Video Extension Functionality
 
-If you want to continue generating the video, you can set the parameter `action` to `extend`, and input the ID or video link of the video you want to continue generating. The video ID and video link can be obtained based on the basic usage as shown in the image below:
+If you want to continue generating the video, you can set the parameter `action` to `extend`, and input the ID or video link of the video you want to continue generating. The video ID and video link can be obtained based on the basic usage, as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/fwknj4.png" width="500" class="m-auto"></p>
 
@@ -181,9 +181,9 @@ At this point, you can see that the video ID is:
 "video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4"
 ```
 
-> Note that the `video_id` and `video_url` here are the ID and link of the generated video. If you do not know how to generate a video, you can refer to the basic usage above to generate a video.
+> Note that the `video_id` and `video_url` here are the ID and link of the generated video. If you do not know how to generate a video, you can refer to the basic usage mentioned above.
 
-To continue generating the video, you must upload the video link or video ID. Below demonstrates using the video ID to extend, and next, we must fill in the keywords to customize the video generation, specifying the following content:
+To continue generating the video, you must upload the video link or video ID. Below is a demonstration of using the video ID to extend it. Next, we must fill in the keywords to customize the video generation, specifying the following content:
 
 - action: The action for extending the video, which should be `extend`.
 - prompt: The keywords for extending the video.
@@ -222,7 +222,7 @@ response = requests.post(url, json=payload, headers=headers)
 print(response.text)
 ```
 
-Clicking run, you can find that a result is obtained as follows:
+Clicking run, you can find that a result is obtained, as follows:
 
 ```json
 {
@@ -266,7 +266,7 @@ After running, the following result is obtained:
 
 From the result, it can be seen that the video extension function can also be achieved based on the video link.
 
-Finally, we can also specify an image for the last frame in the extended video for extension. Below is the information for the last frame image:
+Finally, we can also specify an image for the last frame in the extended video. Below is the information for the last frame image:
 
 ![Last Frame](https://cdn.acedata.cloud/0iad3k.png)
 
@@ -292,7 +292,7 @@ After clicking run, the following information is obtained:
 }
 ```
 
-It can be seen that, based on the extended video above, a last frame image can also be specified for extension.
+It can be seen that, based on the extended video above, a last frame image can also be specified for the extension.
 
 ### Asynchronous Callback
 
