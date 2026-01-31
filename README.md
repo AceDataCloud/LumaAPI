@@ -61,21 +61,21 @@ You can click the "Try" button to directly test the API. After waiting for 1-2 m
 }
 ```
 
-At this point, we have obtained the relevant information about the video, including video ID, video link, video cover, and other content.
+At this point, we have obtained the relevant information about the video, including video ID, video link, video thumbnail, and other content.
 
 Field descriptions are as follows:
 
-- success: Whether the generation was successful; if successful, it is `true`, otherwise it is `false`.
+- success: Indicates whether the generation was successful; if successful, it is `true`, otherwise it is `false`.
 - task_id: The unique ID of this video generation task.
 - video_id: The unique ID of the video generated from this task.
 - prompt: The keywords for this video generation task.
 - video_url: The link to the resulting video from this task.
-- video_height: The height of the generated video cover image.
-- video_width: The width of the generated video cover image.
+- video_height: The height of the generated video thumbnail image.
+- video_width: The width of the generated video thumbnail image.
 - state: The status of this video generation task; if the task is completed, it is `completed`.
-- thumbnail_url: The link to the generated video cover image.
-- thumbnail_width: The width of the generated video cover image.
-- thumbnail_height: The height of the generated video cover image.
+- thumbnail_url: The link to the generated video thumbnail image.
+- thumbnail_width: The width of the generated video thumbnail image.
+- thumbnail_height: The height of the generated video thumbnail image.
 
 ### Custom Start and End Frame Generation
 
@@ -191,7 +191,7 @@ To continue generating the video, you must upload the video link or video ID. Be
 - video_id: The unique ID of the video to be extended.
 - end_image_url: The link of the image for the last frame of the extended video, optional parameter.
 
-An example of the filled form is as follows:
+The sample input is as follows:
 
 <p><img src="https://cdn.acedata.cloud/vv0rxk.png" width="500" class="m-auto"></p>
 
@@ -240,9 +240,9 @@ Clicking run, you can find that a result is obtained, as follows:
 }
 ```
 
-It can be seen that this video is an extension based on the video that needs to be extended, and the result content is consistent with the above text, thus achieving the function of continuing song generation.
+It can be seen that this video is an extension based on the video that needs to be extended, and the result content is consistent with the above text, thus achieving the function of continuing the song generation.
 
-Of course, we can also specify the video link to extend the generation by filling in the following information:
+Of course, we can also specify the video link to perform the extension generation by filling in the following information:
 
 <p><img src="https://cdn.acedata.cloud/0cv0hg.png" width="500" class="m-auto"></p>
 
@@ -264,7 +264,7 @@ After running, the following result is obtained:
 }
 ```
 
-From the result, it can be seen that the video extension function can also be achieved based on the video link.
+According to the result, it can be seen that the video extension function can also be achieved based on the video link.
 
 Finally, we can also specify an image for the last frame in the extended video. Below is the information for the last frame image:
 
