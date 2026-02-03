@@ -19,9 +19,9 @@ To use the Luma Videos API, you can first visit the [Luma Videos Generation API]
 
 ![](https://cdn.acedata.cloud/nyq0xz.png)
 
-If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will automatically return to the current page.
+If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
-Upon the first application, there will be a free quota provided, allowing you to use the API for free.
+There will be a free quota granted upon the first application, allowing you to use the API for free.
 
 ### Basic Usage
 
@@ -166,7 +166,7 @@ Finally, the result is as follows:
 }
 ```
 
-The result is similar to the above text, and the generated video contains images of both the first and last frames, thus completing the custom first and last frame generation for the video.
+The result is similar to the above, and the generated video contains images of both the first and last frames, thus completing the custom first and last frame generation for the video.
 
 ### Video Extension Functionality
 
@@ -181,9 +181,9 @@ At this point, you can see that the video ID is:
 "video_url": "https://platform.cdn.acedata.cloud/luma/12a18694-fd4b-47e7-9c50-34f30862cff6.mp4"
 ```
 
-> Note that the `video_id` and `video_url` here are the ID and link of the generated video. If you do not know how to generate a video, you can refer to the basic usage mentioned above.
+> Note that the `video_id` and `video_url` here are the ID and link of the generated video. If you do not know how to generate a video, you can refer to the basic usage above to generate a video.
 
-To continue generating the video, you must upload the video link or video ID. Below is a demonstration of using the video ID to extend it. Next, we must fill in the keywords to customize the video generation, specifying the following content:
+To continue generating the video, you must upload the video link or video ID. Below is a demonstration of using the video ID to extend it. Next, we must fill in the keywords to customize the video generation, which can specify the following content:
 
 - action: The action for extending the video, which should be `extend`.
 - prompt: The keywords for extending the video.
@@ -240,7 +240,7 @@ Clicking run, you can find that a result is obtained, as follows:
 }
 ```
 
-It can be seen that this video is an extension based on the video that needs to be extended, and the result content is consistent with the above text, thus achieving the function of continuing the song generation.
+It can be seen that this video is an extension based on the video that needs to be extended, and the result content is consistent with the above, thus achieving the function of continuing song generation.
 
 Of course, we can also specify the video link to perform the extension generation by filling in the following information:
 
@@ -266,7 +266,7 @@ After running, the following result is obtained:
 
 According to the result, it can be seen that the video extension function can also be achieved based on the video link.
 
-Finally, we can also specify an image for the last frame in the extended video. Below is the information for the last frame image:
+Finally, we can also specify a last frame image for the extended video. Below is the information for the last frame image:
 
 ![Last Frame](https://cdn.acedata.cloud/0iad3k.png)
 
@@ -301,7 +301,7 @@ The overall process is: when the client initiates a request, an additional `call
 
 Next, let's understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we will use a public Webhook sample site https://webhook.site/, where you can obtain a Webhook URL, as shown in the image:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we will use a public Webhook sample site https://webhook.site/, and opening this site will provide a Webhook URL, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/q78okf.png" width="500" class="m-auto"></p>
 
