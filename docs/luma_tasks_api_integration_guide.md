@@ -6,11 +6,11 @@ This document will provide detailed integration instructions for the Luma Tasks 
 
 ## Application Process
 
-To use the Luma Tasks API, you first need to apply for the corresponding service on the application page [Luma Videos Generation API](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f), and then copy the task ID from the Luma Videos Generation API, as shown in the image:
+To use the Luma Tasks API, you first need to apply for the corresponding service on the application page [Luma Videos Generation API](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f), and then copy the task ID from the Luma Videos Generation API, as shown in the figure:
 
 ![](https://cdn.acedata.cloud/ynk4ow.png)
 
-Finally, go to the Tasks API page [Luma Tasks API](https://platform.acedata.cloud/documents/7d32369c-4ead-4364-a4c5-652bc768b3ff) to apply for the corresponding service. After entering the page, click the "Acquire" button, as shown in the image:
+Finally, go to the Tasks API page [Luma Tasks API](https://platform.acedata.cloud/documents/7d32369c-4ead-4364-a4c5-652bc768b3ff) to apply for the corresponding service. After entering the page, click the "Acquire" button, as shown in the figure:
 
 ![Application Page](https://cdn.acedata.cloud/rci31i.png)
 
@@ -20,7 +20,7 @@ There is a free quota available for first-time applicants, allowing you to use t
 
 ## Request Example
 
-The Luma Tasks API can be used to query the results of the Luma Videos Generation API. For information on how to use the Luma Videos Generation API, please refer to the documentation [Luma Videos Generation API](https://platform.acedata.cloud/documents/16bb0108-1f09-45b3-97ac-16a668750a8c).
+The Luma Tasks API can be used to query the results of the Luma Videos Generation API. For information on how to use the Luma Videos Generation API, please refer to the document [Luma Videos Generation API](https://platform.acedata.cloud/documents/16bb0108-1f09-45b3-97ac-16a668750a8c).
 
 We will take one task ID returned by the Luma Videos Generation API as an example to demonstrate how to use this API. Suppose we have a task ID: 50fc6182-fa86-4c7d-ac12-2fa27ec2f151, and we will demonstrate how to pass in a task ID.
 
@@ -32,7 +32,7 @@ We will take one task ID returned by the Luma Videos Generation API as an exampl
 
 **Request Headers** include:
 
-- `accept`: Specifies that the response should be in JSON format, set to `application/json`.
+- `accept`: Specifies that the response result should be in JSON format, set to `application/json`.
 - `authorization`: The key to call the API, which can be selected directly after application.
 
 **Request Body** includes:
@@ -40,13 +40,13 @@ We will take one task ID returned by the Luma Videos Generation API as an exampl
 - `id`: The uploaded task ID.
 - `action`: The operation method for the task.
 
-Set as shown in the image below:
+Set as shown in the figure below:
 
 <p><img src="https://cdn.acedata.cloud/g6ev5b.png" width="500" class="m-auto"></p>
 
 ### Code Example
 
-You can see that various language codes have been automatically generated on the right side of the page, as shown in the image:
+You can see that various language codes have been automatically generated on the right side of the page, as shown in the figure:
 
 <p><img src="https://cdn.acedata.cloud/i4fxqf.png" width="500" class="m-auto"></p>
 
@@ -122,12 +122,12 @@ Upon successful request, the API will return the detailed information of the vid
 }
 ```
 
-The returned result contains multiple fields, with the request field being the request body when the task was initiated, and the response field being the response body returned after the task is completed, consistent with the request and return of the Luma Videos Generation API. The field descriptions are as follows.
+The returned result contains multiple fields, with the request field being the request body when the task was initiated, and the response field being the response body returned after the task is completed, consistent with the requests and returns of the Luma Videos Generation API. The field descriptions are as follows.
 
 - `id`: The ID of the video task generated, used to uniquely identify this video generation task.
-- `video_id`: The unique identifier of the video in this queried video task, which needs to be passed when performing extension operations on the video next time.
-- `request`: The request information in the queried video task.
-- `response`: The return information in the queried video task.
+- `video_id`: The unique identifier of the video in the queried video task, which needs to be passed when performing extension operations on the video next time.
+- `request`: The request information in the video task.
+- `response`: The return information in the video task.
 
 ## Batch Query Operation
 
@@ -138,13 +138,13 @@ This is for querying the details of multiple task IDs, and unlike the above, the
 - `ids`: An array of uploaded task IDs.
 - `action`: The operation method for the task.
 
-Set as shown in the image below:
+Set as shown in the figure below:
 
 <p><img src="https://cdn.acedata.cloud/mpcf1m.png" width="500" class="m-auto"></p>
 
 ### Code Example
 
-You can see that various language codes have been automatically generated on the right side of the page, as shown in the image:
+You can see that various language codes have been automatically generated on the right side of the page, as shown in the figure:
 
 <p><img src="https://cdn.acedata.cloud/zs6y35.png" width="500" class="m-auto"></p>
 
@@ -217,6 +217,11 @@ Upon successful request, the API will return the specific details of all batch v
 }
 ```
 
+The returned result contains multiple fields, among which `items` includes the specific details of batch video tasks, and each video's specific information is the same as the format of the single task return result mentioned above. The field information is as follows.
+
+- `items`, all specific detail information of batch video tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
+- `count`, the number of video tasks in this batch query.
+
 #### CURL
 
 ```bash
@@ -277,4 +282,4 @@ When calling the API, if an error occurs, the API will return the corresponding 
 
 ## Conclusion
 
-Through this document, you have learned how to use the Luma Tasks API to query the specific details of single or batch video tasks. We hope this document helps you better integrate and use the API. If you have any questions, please feel free to contact our technical support team.
+Through this document, you have learned how to use the Luma Tasks API to query all specific detail information of single or batch video tasks. We hope this document can help you better integrate and use this API. If you have any questions, please feel free to contact our technical support team.
