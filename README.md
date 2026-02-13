@@ -1,6 +1,6 @@
 # Luma Video Generation API
 
-Luma AI video generation service creates beautiful videos through prompts and starting images.
+Luma AI video generation service with text and image input.
 
 API home page: [Ace Data Cloud - Luma Video Generation](https://platform.acedata.cloud/services/dff45a0d-2858-4936-8e2b-3d49c52aff11)
 
