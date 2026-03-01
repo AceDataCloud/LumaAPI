@@ -7,9 +7,9 @@ API home page: [Ace Data Cloud - Luma Video Generation](https://platform.acedata
 ## Get Started
 
 
-With the widespread application of AI, various AI programs have gradually become popular. AI has gradually penetrated all aspects of people's work and life. The industries involved in AI are also increasing, from the initial writing, to medical education, and now to video.
+With the widespread application of AI, various AI programs have gradually become popular. AI has increasingly penetrated all aspects of people's work and life. The industries involved in AI are also growing, from the initial writing, to medical education, and now to video.
 
-Luma is a professional high-quality video generation platform where users only need to upload materials to automatically generate high-quality videos based on different styles and effects. This AI video generator is developed by team members from well-known technology companies, aiming to allow everyone to easily create outstanding videos without complex editing tools.
+Luma is a professional high-quality video generation platform where users can simply upload materials to automatically generate high-quality videos based on different styles and effects. This AI video generator is developed by team members from well-known technology companies, aiming to allow everyone to easily create outstanding videos without complex editing tools.
 
 However, Luma does not officially provide an API. AceDataCloud offers a set of Luma APIs that simulate the integration with Suno's official API, making it convenient and quick to generate the desired videos.
 
@@ -69,7 +69,7 @@ Field descriptions are as follows:
 - task_id: The unique ID of this video generation task.
 - video_id: The unique ID of the video generated from this task.
 - prompt: The keywords for this video generation task.
-- video_url: The result video link of this video generation task.
+- video_url: The link to the resulting video from this task.
 - video_height: The height of the generated video thumbnail image.
 - video_width: The width of the generated video thumbnail image.
 - state: The status of this video generation task; if the task is completed, it is `completed`.
@@ -92,7 +92,7 @@ Next, we need to customize the video generation based on the start and end frame
 - end_image_url: Specifies the end frame of the generated video.
 - prompt: The keyword content for generating the video.
 
-An example of the filled form is as follows:
+An example of the input is as follows:
 
 <p><img src="https://cdn.acedata.cloud/zvzydx.png" width="500" class="m-auto"></p>
 
@@ -145,7 +145,7 @@ The final result is similar to the previous one, with the generated video start 
 
 ![End Frame](https://cdn.acedata.cloud/0iad3k.png)
 
-An example of the filled form is as follows:
+An example of the input is as follows:
 
 <p><img src="https://cdn.acedata.cloud/20igwi.png" width="500" class="m-auto"></p>
 
@@ -183,7 +183,7 @@ At this point, you can see that the video ID is:
 
 > Note that the `video_id` and `video_url` here are the ID and link of the generated video. If you do not know how to generate a video, you can refer to the basic usage mentioned above.
 
-To continue generating the video, you must upload the video link or video ID. Below is a demonstration of using the video ID to extend it. Next, we must fill in the keywords to customize the video generation, specifying the following content:
+To continue generating the video, you must upload the video link or video ID. Below is a demonstration of using the video ID to extend it. Next, we must fill in the keywords to customize the video generation, which can specify the following content:
 
 - action: The action for extending the video, which should be `extend`.
 - prompt: The keywords for extending the video.
@@ -191,7 +191,7 @@ To continue generating the video, you must upload the video link or video ID. Be
 - video_id: The unique ID of the video to be extended.
 - end_image_url: The link of the image for the last frame of the extended video, optional parameter.
 
-The sample input is as follows:
+An example of the filled form is as follows:
 
 <p><img src="https://cdn.acedata.cloud/vv0rxk.png" width="500" class="m-auto"></p>
 
@@ -242,7 +242,7 @@ Clicking run, you can find that a result is obtained, as follows:
 
 It can be seen that this video is an extension based on the video that needs to be extended, and the result content is consistent with the above text, thus achieving the function of continuing the song generation.
 
-Of course, we can also specify the video link to perform the extension generation by filling in the following information:
+Of course, we can also specify the video link to extend the generation by filling in the following information:
 
 <p><img src="https://cdn.acedata.cloud/0cv0hg.png" width="500" class="m-auto"></p>
 
@@ -264,7 +264,7 @@ After running, the following result is obtained:
 }
 ```
 
-According to the result, it can be seen that the video extension function can also be achieved based on the video link.
+From the result, it can be seen that the video extension function can also be achieved based on the video link.
 
 Finally, we can also specify an image for the last frame in the extended video. Below is the information for the last frame image:
 
@@ -297,11 +297,11 @@ It can be seen that, based on the extended video above, a last frame image can a
 ### Asynchronous Callback
 
 Since the time for Luma to generate videos is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
-The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client initiates the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the generated music result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
+The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client makes the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the generated music result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
 
 Next, let's understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/, and opening this site will provide a Webhook URL, as shown in the image:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we will use a public Webhook sample site https://webhook.site/, and by opening this site, you can obtain a Webhook URL, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/q78okf.png" width="500" class="m-auto"></p>
 
@@ -311,7 +311,7 @@ Next, we can set the `callback_url` field to the above Webhook URL and fill in t
 
 <p><img src="https://cdn.acedata.cloud/n2fjvi.png" width="500" class="m-auto"></p>
 
-Clicking run, we can find that a result is immediately obtained, as follows:
+Clicking run, you will find that a result is immediately obtained, as follows:
 
 ```json
 {
