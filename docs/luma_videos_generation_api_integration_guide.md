@@ -8,7 +8,7 @@ However, Luma does not officially provide an API. AceDataCloud offers a set of L
 
 ## Application and Usage
 
-To use the Luma Videos API, you can first go to the [Luma Videos Generation API](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) page and click the "Acquire" button to obtain the credentials needed for the request:
+To use the Luma Videos API, you can first visit the [Luma Videos Generation API](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) page and click the "Acquire" button to obtain the credentials needed for the request:
 
 ![](https://cdn.acedata.cloud/nyq0xz.png)
 
@@ -54,7 +54,7 @@ You can click the "Try" button to directly test the API. After waiting for 1-2 m
 }
 ```
 
-At this point, we can see the relevant information of the video, including video ID, video link, video thumbnail, and other content.
+At this point, we have obtained the relevant information about the video, including video ID, video link, video thumbnail, and other content.
 
 Field descriptions are as follows:
 
@@ -62,7 +62,7 @@ Field descriptions are as follows:
 - task_id: The unique ID of this video generation task.
 - video_id: The unique ID of the video generated from this task.
 - prompt: The keywords for this video generation task.
-- video_url: The result video link of this video generation task.
+- video_url: The link to the resulting video from this task.
 - video_height: The height of the generated video thumbnail image.
 - video_width: The width of the generated video thumbnail image.
 - state: The status of this video generation task; if the task is completed, it is `completed`.
@@ -85,11 +85,11 @@ Next, we need to customize the video generation based on the start and end frame
 - end_image_url: Specifies the end frame of the generated video.
 - prompt: The keyword content for generating the video.
 
-An example of the input is as follows:
+An example of the filled form is as follows:
 
 <p><img src="https://cdn.acedata.cloud/zvzydx.png" width="500" class="m-auto"></p>
 
-After filling in, the generated code is as follows:
+After filling it out, the generated code is as follows:
 
 <p><img src="https://cdn.acedata.cloud/tx80pu.png" width="500" class="m-auto"></p>
 
@@ -138,7 +138,7 @@ The final result is similar to the previous one, with the generated video start 
 
 ![End Frame](https://cdn.acedata.cloud/0iad3k.png)
 
-An example of the input is as follows:
+An example of the filled form is as follows:
 
 <p><img src="https://cdn.acedata.cloud/20igwi.png" width="500" class="m-auto"></p>
 
@@ -159,11 +159,11 @@ Finally, the result is as follows:
 }
 ```
 
-The result is similar to the above text, and the generated video also contains images of the first and last frames, thus completing the custom first and last frame generation for the video.
+The result is similar to the above text, and the generated video contains images of both the first and last frames, thus completing the custom first and last frame generation for the video.
 
 ## Video Extension Functionality
 
-If you want to continue generating the video, you can set the parameter `action` to `extend`, and input the ID or video link of the video you want to continue generating. The video ID and video link can be obtained based on the basic usage as shown in the image below:
+If you want to continue generating the video, you can set the parameter `action` to `extend`, and input the ID or video link of the video you want to continue generating. The video ID and video link can be obtained based on the basic usage, as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/fwknj4.png" width="500" class="m-auto"></p>
 
@@ -233,13 +233,13 @@ Clicking run, you can find that you will get a result as follows:
 }
 ```
 
-It can be seen that this video is an extension based on the video that needs to be extended, and the result content is consistent with the above text, thus achieving the function of continuing song generation.
+It can be seen that this video is an extension based on the video that needs to be extended, and the result content is consistent with the above text, thus achieving the function of continuing the song generation.
 
 Of course, we can also specify the video link to extend the generation by filling in the following information:
 
 <p><img src="https://cdn.acedata.cloud/0cv0hg.png" width="500" class="m-auto"></p>
 
-After running, the following result is obtained:
+After running, the result obtained is as follows:
 
 ```json
 {
@@ -257,7 +257,7 @@ After running, the following result is obtained:
 }
 ```
 
-From the result, it can be seen that the video extension function can also be achieved based on the video link.
+According to the result, it can be seen that the video extension function can also be achieved based on the video link.
 
 Finally, we can also specify an image for the last frame in the extended video. Below is the information for the last frame image:
 
@@ -294,11 +294,11 @@ The overall process is: when the client initiates a request, an additional `call
 
 Next, let's understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we use a public Webhook sample site https://webhook.site/, and opening this site will provide a Webhook URL, as shown in the image:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we will use a public Webhook sample site https://webhook.site/, where you can obtain a Webhook URL as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/q78okf.png" width="500" class="m-auto"></p>
 
-Copy this URL, and it can be used as a Webhook; the sample here is https://webhook.site/0c87ca0e-cd74-4577-8d68-f2b80fbf8a13.
+Copy this URL, and it can be used as a Webhook. The sample here is https://webhook.site/0c87ca0e-cd74-4577-8d68-f2b80fbf8a13.
 
 Next, we can set the `callback_url` field to the above Webhook URL and fill in the `prompt`, as shown in the image:
 
