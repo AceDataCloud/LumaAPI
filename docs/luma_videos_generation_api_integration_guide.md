@@ -163,7 +163,7 @@ The result is similar to the above text, and the generated video also contains i
 
 ## Video Extension Functionality
 
-If you want to continue generating the video, you can set the parameter `action` to `extend`, and input the ID or video link of the video you want to continue generating. The video ID and video link can be obtained based on the basic usage, as shown in the image below:
+If you want to continue generating the video, you can set the parameter `action` to `extend`, and input the ID or video link of the video you want to continue generating. The video ID and video link can be obtained based on the basic usage as shown in the image below:
 
 <p><img src="https://cdn.acedata.cloud/fwknj4.png" width="500" class="m-auto"></p>
 
@@ -259,7 +259,7 @@ After running, the result obtained is as follows:
 
 From the result, it can be seen that the video extension function can also be achieved based on the video link.
 
-Finally, we can also specify an image for the last frame in the extended video. Below is the information for the last frame image:
+Finally, we can also specify an image for the last frame in the extended video to perform the extension. Below is the information for the last frame image:
 
 ![Last Frame](https://cdn.acedata.cloud/0iad3k.png)
 
@@ -285,7 +285,7 @@ After clicking run, the following information is obtained:
 }
 ```
 
-It can be seen that, based on the extended video above, a last frame image can also be specified for extension.
+It can be seen that, based on the extended video above, a last frame image can also be specified for the extension.
 
 ## Asynchronous Callback
 
@@ -294,7 +294,7 @@ The overall process is: when the client initiates a request, an additional `call
 
 Next, let's understand how to operate specifically through an example.
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we will use a public Webhook sample site https://webhook.site/, where you can obtain a Webhook URL as shown in the image:
+First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we will use a public Webhook sample site https://webhook.site/, and opening this site will provide a Webhook URL, as shown in the image:
 
 <p><img src="https://cdn.acedata.cloud/q78okf.png" width="500" class="m-auto"></p>
 
