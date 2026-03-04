@@ -7,9 +7,9 @@ API home page: [Ace Data Cloud - Luma Video Generation](https://platform.acedata
 ## Get Started
 
 
-With the widespread application of AI, various AI programs have gradually become popular. AI has gradually penetrated all aspects of people's work and life. The industries involved in AI are also increasing, from the initial writing, to medical education, and now to video.
+With the widespread application of AI, various AI programs have gradually become popular. AI has increasingly penetrated all aspects of people's work and life. The industries involved in AI are also growing, from the initial writing, to medical education, and now to video.
 
-Luma is a professional high-quality video generation platform where users only need to upload materials to automatically generate high-quality videos based on different styles and effects. This AI video generator is developed by team members from well-known technology companies, aiming to allow everyone to easily create outstanding videos without complex editing tools.
+Luma is a professional high-quality video generation platform where users can simply upload materials to automatically generate high-quality videos based on different styles and effects. This AI video generator is developed by team members from well-known technology companies, aiming to allow everyone to easily create outstanding videos without complex editing tools.
 
 However, Luma does not officially provide an API. AceDataCloud offers a set of Luma APIs that simulate the integration with Suno's official API, making it convenient and quick to generate the desired videos.
 
@@ -92,7 +92,7 @@ Next, we need to customize the video generation based on the start and end frame
 - end_image_url: Specifies the end frame of the generated video.
 - prompt: The keyword content for generating the video.
 
-An example of the filled form is as follows:
+An example of the input is as follows:
 
 <p><img src="https://cdn.acedata.cloud/zvzydx.png" width="500" class="m-auto"></p>
 
@@ -145,7 +145,7 @@ The final result is similar to the previous one, with the generated video start 
 
 ![End Frame](https://cdn.acedata.cloud/0iad3k.png)
 
-An example of the filled form is as follows:
+An example of the input is as follows:
 
 <p><img src="https://cdn.acedata.cloud/20igwi.png" width="500" class="m-auto"></p>
 
@@ -166,7 +166,7 @@ Finally, the result is as follows:
 }
 ```
 
-The result is similar to the above text, and the generated video contains images of both the first and last frames, thus completing the custom first and last frame generation for the video.
+The result is similar to the above text, and the generated video also contains images of the first and last frames, thus completing the custom first and last frame generation for the video.
 
 ### Video Extension Functionality
 
@@ -240,7 +240,7 @@ Clicking run, you can find that you will get a result as follows:
 }
 ```
 
-It can be seen that this video is an extension based on the video that needs to be extended, and the result content is consistent with the above text, thus achieving the function of continuing the song generation.
+It can be seen that this video is an extension based on the video that needs to be extended, and the result content is consistent with the above text, thus achieving the function of continuing song generation.
 
 Of course, we can also specify the video link to extend the generation by filling in the following information:
 
@@ -264,7 +264,7 @@ After running, the result obtained is as follows:
 }
 ```
 
-According to the result, it can be seen that the video extension function can also be achieved based on the video link.
+From the result, it can be seen that the video extension function can also be achieved based on the video link.
 
 Finally, we can also specify an image for the last frame in the extended video. Below is the information for the last frame image:
 
