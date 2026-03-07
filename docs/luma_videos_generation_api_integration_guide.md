@@ -8,11 +8,11 @@ However, Luma does not officially provide an API. AceDataCloud offers a set of L
 
 ## Application and Usage
 
-To use the Luma Videos API, you can first go to the [Luma Videos Generation API](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) page and click the "Acquire" button to obtain the credentials needed for the request:
+To use the Luma Videos API, you can first visit the [Luma Videos Generation API](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) page and click the "Acquire" button to obtain the credentials needed for the request:
 
 ![](https://cdn.acedata.cloud/nyq0xz.png)
 
-If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will automatically return to the current page.
+If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in. After logging in or registering, you will be automatically returned to the current page.
 
 Upon the first application, there will be a free quota provided, allowing you to use the API for free.
 
@@ -54,7 +54,7 @@ You can click the "Try" button to directly test the API. After waiting for 1-2 m
 }
 ```
 
-At this point, we have obtained the relevant information about the video, including video ID, video link, video thumbnail, and other content.
+At this point, we can see the relevant information of the video, including video ID, video link, video thumbnail, and other content.
 
 Field descriptions are as follows:
 
@@ -62,7 +62,7 @@ Field descriptions are as follows:
 - task_id: The unique ID of this video generation task.
 - video_id: The unique ID of the video generated from this task.
 - prompt: The keywords for this video generation task.
-- video_url: The link to the resulting video from this task.
+- video_url: The result video link of this video generation task.
 - video_height: The height of the generated video thumbnail image.
 - video_width: The width of the generated video thumbnail image.
 - state: The status of this video generation task; if the task is completed, it is `completed`.
@@ -176,15 +176,15 @@ At this point, you can see that the video ID is:
 
 > Note that the `video_id` and `video_url` here are the ID and link of the generated video. If you do not know how to generate a video, you can refer to the basic usage above to generate a video.
 
-To continue generating the video, you must upload the video link or video ID. Below is a demonstration of using the video ID to extend it. Next, we must fill in the keywords to customize the video generation, which can specify the following content:
+To continue generating the video, you must upload the video link or video ID. Below is a demonstration of using the video ID to extend it. Next, we must fill in the keywords to customize the video generation, specifying the following content:
 
 - action: The action for extending the video, which should be `extend`.
 - prompt: The keywords for extending the video.
-- video_url: The link of the video to be extended.
-- video_id: The unique ID of the video to be extended.
-- end_image_url: The link of the image for the last frame of the extended video, optional parameter.
+- video_url: The link to the video that needs to be extended.
+- video_id: The unique ID of the video that needs to be extended.
+- end_image_url: The link to the image for the last frame of the extended video, optional parameter.
 
-The sample input is as follows:
+An example of the filled form is as follows:
 
 <p><img src="https://cdn.acedata.cloud/vv0rxk.png" width="500" class="m-auto"></p>
 
@@ -215,7 +215,7 @@ response = requests.post(url, json=payload, headers=headers)
 print(response.text)
 ```
 
-Clicking run, you can find that you will get a result as follows:
+Clicking run, you can find that a result is obtained as follows:
 
 ```json
 {
@@ -239,7 +239,7 @@ Of course, we can also specify the video link to perform the extension generatio
 
 <p><img src="https://cdn.acedata.cloud/0cv0hg.png" width="500" class="m-auto"></p>
 
-After running, the result obtained is as follows:
+After running, the following result is obtained:
 
 ```json
 {
