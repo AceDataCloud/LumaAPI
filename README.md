@@ -2,10 +2,22 @@
 
 Luma AI video generation service with text and image input.
 
-API home page: [Ace Data Cloud - Luma Video Generation](https://platform.acedata.cloud/services/dff45a0d-2858-4936-8e2b-3d49c52aff11)
+![Platform](https://img.shields.io/badge/platform-Ace%20Data%20Cloud-0f766e?style=flat-square) ![API](https://img.shields.io/badge/type-AI%20API-2563eb?style=flat-square) ![Docs](https://img.shields.io/badge/docs-online-16a34a?style=flat-square)
 
-## Get Started
+![Luma Video Generation](https://cdn.acedata.cloud/k4o0p2.png/thumb_600x300)
 
+API home page: [Ace Data Cloud - Luma Video Generation](https://platform.acedata.cloud/service/luma)
+
+Keywords: luma-ai, ai-video, video-generation, text-to-video, rest-api, ai-api, aivideo, AI API, REST API, Developer API, Ace Data Cloud
+
+## Why Use Luma Video Generation on Ace Data Cloud
+
+- Unified developer platform with one API key, billing system, and usage tracking
+- Production-ready AI API endpoints served from [https://api.acedata.cloud](https://api.acedata.cloud)
+- English integration guides, API references, and service documentation
+- Global-ready workflow for developers building chat, image, video, music, and search products
+
+## Overview
 
 With the widespread application of AI, various AI programs have gradually become popular. AI has gradually penetrated all aspects of people's work and life. The industries involved in AI are also increasing, from the initial writing, to medical education, and now to video.
 
@@ -13,7 +25,7 @@ Luma is a professional high-quality video generation platform where users only n
 
 However, Luma does not officially provide an API. AceDataCloud offers a set of Luma APIs that simulate the integration with Suno's official API, making it convenient and quick to generate the desired videos.
 
-### Application and Usage
+## Application and Usage
 
 To use the Luma Videos API, you can first visit the [Luma Videos Generation API](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) page and click the "Acquire" button to obtain the credentials needed for the request:
 
@@ -23,7 +35,7 @@ If you are not logged in or registered, you will be automatically redirected to 
 
 Upon the first application, there will be a free quota provided, allowing you to use the API for free.
 
-### Basic Usage
+## Basic Usage
 
 To generate a video, you can input any text. For example, if I want to generate a video about astronauts shuttling between space and volcanoes, I can input `Astronauts shuttle from space to volcano`, as shown in the image:
 
@@ -77,7 +89,7 @@ Field descriptions are as follows:
 - thumbnail_width: The width of the generated video thumbnail image.
 - thumbnail_height: The height of the generated video thumbnail image.
 
-### Custom Start and End Frame Generation
+## Custom Start and End Frame Generation
 
 If you want to generate a video by customizing the start and end frames, you can input the image links for the start and end frames:
 
@@ -168,7 +180,7 @@ Finally, the result is as follows:
 
 The result is similar to the above, and the generated video contains images of both the first and last frames, thus completing the custom first and last frame generation for the video.
 
-### Video Extension Functionality
+## Video Extension Functionality
 
 If you want to continue generating the video, you can set the parameter `action` to `extend`, and input the ID or video link of the video you want to continue generating. The video ID and video link can be obtained based on the basic usage, as shown in the image below:
 
@@ -294,66 +306,36 @@ After clicking run, the following information is obtained:
 
 It can be seen that, based on the extended video above, a last frame image can also be specified for the extension.
 
-### Asynchronous Callback
 
-Since the time for Luma to generate videos is relatively long, approximately 1-2 minutes, if the API does not respond for a long time, the HTTP request will keep the connection open, leading to additional system resource consumption. Therefore, this API also provides support for asynchronous callbacks.
-The overall process is: when the client initiates a request, an additional `callback_url` field is specified. After the client makes the API request, the API will immediately return a result containing a `task_id` field, representing the current task ID. When the task is completed, the generated music result will be sent to the client-specified `callback_url` in the form of a POST JSON, which also includes the `task_id` field, allowing the task result to be associated by ID.
+## Quick Start
 
-Next, let's understand how to operate specifically through an example.
+- Base URL: [https://api.acedata.cloud](https://api.acedata.cloud)
+- Service page: [Luma Video Generation on Ace Data Cloud](https://platform.acedata.cloud/service/luma)
+- Docs: [Developer documentation](https://docs.acedata.cloud)
 
-First, the Webhook callback is a service that can receive HTTP requests, and developers should replace it with the URL of their own HTTP server. For demonstration purposes, we will use a public Webhook sample site https://webhook.site/, and opening this site will provide a Webhook URL, as shown in the image:
-
-<p><img src="https://cdn.acedata.cloud/q78okf.png" width="500" class="m-auto"></p>
-
-Copy this URL, and it can be used as a Webhook. The sample here is https://webhook.site/0c87ca0e-cd74-4577-8d68-f2b80fbf8a13.
-
-Next, we can set the `callback_url` field to the above Webhook URL and fill in the `prompt`, as shown in the image:
-
-<p><img src="https://cdn.acedata.cloud/n2fjvi.png" width="500" class="m-auto"></p>
-
-Clicking run, we can find that a result is immediately obtained, as follows:
-
-```json
-{
-  "task_id": "732f8282-7cf8-401c-95f2-42c33aa079a6"
-}
+```bash
+curl --request POST "https://api.acedata.cloud/luma/videos" \
+  --header "Authorization: Bearer YOUR_API_KEY" \
+  --header "Content-Type: application/json" \
+  --data '{}'
 ```
 
-After a moment, we can observe the generated song result at https://webhook.site/0c87ca0e-cd74-4577-8d68-f2b80fbf8a13, as shown in the image:
+## APIs and Guides
 
-![](https://cdn.acedata.cloud/1hwm5m.png)
-
-The content is as follows:
-
-```json
-{
-    "success": true,
-    "task_id": "732f8282-7cf8-401c-95f2-42c33aa079a6",
-    "video_id": "4d8013c3-5de0-41aa-966e-0b1a51d1c633",
-    "prompt": "Astronauts shuttle from space to volcano",
-    "video_url": "https://platform.cdn.acedata.cloud/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.mp4",
-    "video_height": 752,
-    "video_width": 1360,
-    "state": "completed",
-    "thumbnail_url": "https://platform.cdn.acedata.cloud/luma/732f8282-7cf8-401c-95f2-42c33aa079a6.jpg",
-    "thumbnail_width": 1360,
-    "thumbnail_height": 752
-}
-```
-
-It can be seen that the result contains a `task_id` field, and the other fields are similar to those mentioned above, allowing the task to be associated through this field.
-
-## More
-
-For more info, please check below APIs and integration documents.
+Explore the supported endpoints and integration guides for Luma Video Generation.
 
 | API | Path | Integration Guidance |
 | ---- | ---- | ------------ |
-| [Luma Videos Generation API](http://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) | `/luma/videos` | [Luma Videos Generation API Integration Guide](http://platform.acedata.cloud/documents/16bb0108-1f09-45b3-97ac-16a668750a8c) |
-| [Luma Tasks API](http://platform.acedata.cloud/documents/7d32369c-4ead-4364-a4c5-652bc768b3ff) | `/luma/tasks` | [Luma Tasks API Integration Guide](http://platform.acedata.cloud/documents/3e965973-7b28-4844-b404-bd28bfeb5097) |
+| [Luma Videos Generation API](https://platform.acedata.cloud/documents/5bd3597d-1ff8-44ad-a580-b66b48393e7f) | `/luma/videos` | [Luma Videos Generation API Integration Guide](https://platform.acedata.cloud/documents/16bb0108-1f09-45b3-97ac-16a668750a8c) |
+| [Luma Tasks API](https://platform.acedata.cloud/documents/7d32369c-4ead-4364-a4c5-652bc768b3ff) | `/luma/tasks` | [Luma Tasks API Integration Guide](https://platform.acedata.cloud/documents/3e965973-7b28-4844-b404-bd28bfeb5097) |
 
-Base URL: [https://api.acedata.cloud](https://api.acedata.cloud)
+## Related Resources
+
+- [Ace Data Cloud Developer Platform](https://platform.acedata.cloud)
+- [Ace Data Cloud Docs](https://docs.acedata.cloud)
+- [Status Page](https://status.acedata.cloud)
+- [Ace Data Cloud GitHub Organization](https://github.com/AceDataCloud)
 
 ## Support
 
-If you meet any issue, check our from [support info](https://platform.acedata.cloud/support).
+If you meet any issue, please check [support info](https://platform.acedata.cloud/support) or browse the latest documentation on [docs.acedata.cloud](https://docs.acedata.cloud).
