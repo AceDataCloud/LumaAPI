@@ -29,17 +29,17 @@ To use the Luma Videos Generation API, first obtain your API Token from the [Ace
 
 ![](https://cdn.acedata.cloud/5hmkdg.jpg)
 
-If you are not logged in or registered, you will be automatically redirected to the login page inviting you to register and log in, after which you will be returned to the current page.
+If you are not logged in or registered, you will be automatically redirected to the login page to invite you to register and log in, and will return to the current page upon completion.
 
-**One API Token can call all services on the platform without needing to apply separately for each service.** The first application will grant a free quota for a trial experience; when the quota is insufficient, you can recharge the general balance in the [console](https://platform.acedata.cloud/console/coin).
+**One API Token can call all services on the platform, no need to apply separately for each service.** The first application will grant a free quota for a trial experience; when the quota is insufficient, you can recharge the general balance in the [console](https://platform.acedata.cloud/console/coin).
 
 > 📘 Complete Documentation: [Luma Videos Generation API →](https://platform.acedata.cloud/documents/luma-videos)
 
 ## Request Example
 
-The Luma Tasks API can be used to query the results of the Luma Videos Generation API. For information on how to use the Luma Videos Generation API, please refer to the documentation [Luma Videos Generation API](https://platform.acedata.cloud/documents/luma-videos-integration).
+The Luma Tasks API can be used to query the results of the Luma Videos Generation API. For how to use the Luma Videos Generation API, please refer to the documentation [Luma Videos Generation API](https://platform.acedata.cloud/documents/luma-videos-integration).
 
-We will demonstrate how to use this API with an example task ID returned by the Luma Videos Generation API. Suppose we have a task ID: 50fc6182-fa86-4c7d-ac12-2fa27ec2f151, we will show how to pass in a task ID.
+We will demonstrate how to use this API with an example task ID returned by the Luma Videos Generation API. Suppose we have a task ID: 50fc6182-fa86-4c7d-ac12-2fa27ec2f151, we will demonstrate how to pass in a task ID.
 
 ### Task Example Image
 
@@ -49,7 +49,7 @@ We will demonstrate how to use this API with an example task ID returned by the 
 
 **Request Headers** include:
 
-- `accept`: Specifies that the response should be in JSON format, set to `application/json`.
+- `accept`: Specifies that the response result should be in JSON format, set to `application/json`.
 - `authorization`: The key to call the API, which can be selected directly after application.
 
 **Request Body** includes:
@@ -106,7 +106,7 @@ print(response.text)
 
 ### Response Example
 
-Upon successful request, the API will return the details of the video task here. For example:
+Upon successful request, the API will return the detailed information of the video task here. For example:
 
 ```json
 {
@@ -142,11 +142,11 @@ Upon successful request, the API will return the details of the video task here.
 The returned result contains multiple fields, the request field is the request body when the task was initiated, while the response field is the response body returned after the task is completed, consistent with the request and return of the Luma Videos Generation API. The field descriptions are as follows.
 
 - `id`: The ID of the video task generated, used to uniquely identify this video generation task.
-- `video_id`: The unique identifier of the video in the queried video task, which needs to be passed when performing extension operations on the video next time.
+- `video_id`: The unique identifier of the video in the queried video task, which needs to be passed when further operations on the video are required.
 - `request`: The request information in the video task.
 - `response`: The return information in the video task.
 - `created_at`: The task creation time, Unix timestamp (seconds, float).
-- `started_at`: The time the task started executing, ISO-8601 UTC time string.
+- `started_at`: The time the task started executing, Unix timestamp (seconds, float).
 - `finished_at`: The time the task was completed, Unix timestamp (seconds, float). This field is not returned if the task is not completed.
 - `elapsed`: The time taken for task execution, in seconds (float, rounded to 3 decimal places). This field is not returned if the task is not completed.
 
@@ -173,7 +173,7 @@ Some code examples are as follows:
 
 ### Response Example
 
-Upon successful request, the API will return the specific details of all batch video tasks. For example:
+Upon successful request, the API will return the specific details of all batch video tasks this time. For example:
 ```json
 {
   "items": [
@@ -237,11 +237,6 @@ Upon successful request, the API will return the specific details of all batch v
   "count": 2
 }
 ```
-
-The returned result contains multiple fields, among which `items` includes the specific details of batch video tasks, and each video's specific information is the same as the format of the single task return result mentioned above. The field information is as follows.
-
-- `items`, all specific detail information of batch video tasks. It is an array, and each element of the array has the same format as the return result of querying a single task above.
-- `count`, the number of video tasks in this batch query.
 
 #### CURL
 
